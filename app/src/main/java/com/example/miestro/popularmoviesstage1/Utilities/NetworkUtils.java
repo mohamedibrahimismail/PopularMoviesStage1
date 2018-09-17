@@ -31,8 +31,6 @@ import java.util.Scanner;
 
 public class NetworkUtils {
 
-    final static String Themoviedb_BASE_URL =
-            "https://api.themoviedb.org/3/discover/movie";
 
 
 
@@ -50,8 +48,10 @@ public class NetworkUtils {
      * @return The URL to use to query the GitHub.
      */
     public static URL buildUrl(String SortQuery) {
+
+        String Themoviedb_BASE_URL = "https://api.themoviedb.org/3/movie/" +SortQuery;
+
         Uri builtUri = Uri.parse(Themoviedb_BASE_URL).buildUpon()
-                .appendQueryParameter(PARAM_SORT, SortQuery)
                 .appendQueryParameter(API_KEY,Api_Key.Api_Key)
                 .build();
 
